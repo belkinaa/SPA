@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+ <link rel="stylesheet" href="{{ url_for( 'static', filename='css/main.css')}}"/>
+    <title>{{title}} - Belkin AA</title>
+  </head>
+  <body onload="createPagenation({{ lst_json }})">
+    {% block content %}{% endblock %}
+    <script src="{{ url_for( 'static', filename='js/main.js')}}"></script>
+  </body>
+</html>

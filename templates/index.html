@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<input class="form-control" type="text" placeholder="Поиск по имени (доп. быстр поиск)" id="search-name2" onkeyup="tableSearch({{ lst_json }})">
+
+<H3>Выбор колонки, по которой будет фильтрация</H3>
+
+<form name="form_caseField">
+  <select name="town1" id="caseField" >
+    <option value="id" >ID</option>
+    <option value="name">Название</option>
+    <option value="amount">Количество</option>
+    <option value="distanse">Расстояние</option>
+  </select>
+</form>
+
+  <H3>Выбор условия (равно, содержит, больше, меньше)</H3>
+<form name="form_caseIF">
+  <select name="town2" id="caseIF" >
+    <option value="=" >равно (=)</option>
+    <option value="in">содержит (a in [..])</option>
+    <option value=">">больше (>)</option>
+    <option value="<">меньше (<)</option>
+  </select>
+</form>
+
+<input class="form-control" type="text" placeholder="Поле для ввода значения для фильтрации" id="filter">
+
+<input type="submit" onclick="searchForParametr2({{ lst_json }})" value="ok">
+
+
+
+<table id="myTablePage">
+  <tr>
+      <th onclick="sortTable(0, {{ lst_json }})">ID</th>
+      <th>Дата</th>
+      <th onclick="sortTable(2, {{ lst_json }})">Название</th>
+      <th onclick="sortTable(3, {{ lst_json }})">Количество</th>
+      <th onclick="sortTable(4, {{ lst_json }})">Расстояние</th>
+  </tr>
+</table>
+
+<ul class ="pagination"  id="id_pagination" >
+</ul>
+
+
+
+{% endblock %}
